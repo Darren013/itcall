@@ -103,21 +103,23 @@ export default function App() {
         <div className="ButtonContainer">
           <CalcButton label={1} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
           <CalcButton label={2} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
-          <CalcButton label={'C'} onClick={clearClickHandler} />
+     
           <CalcButton label={3} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
           <CalcButton label={4} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
-          <CalcButton label={'+'} onClick={operatorClickHandler} />
+    
           <CalcButton label={5} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
           <CalcButton label={6} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
           <CalcButton label={'='} onClick={equalClickHandler} />
           <CalcButton label={7} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
           <CalcButton label={8} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
           <CalcButton label={9} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
-          <CalcButton label={'*'} onClick={operatorClickHandler} /> {/* Add multiplication */}
-          <CalcButton label={'/'} onClick={operatorClickHandler} /> {/* Add division */}
-          <CalcButton label={'-'} onClick={operatorClickHandler} /> {/* Add subtraction */}
           <CalcButton label={0} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
           <CalcButton label={'.'} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+         <CalcButton label={'C'} onClick={clearClickHandler} />
+         <CalcButton label={'+'} onClick={operatorClickHandler} />
+         <CalcButton label={'-'} onClick={operatorClickHandler} /> {/* Add subtraction */}
+         <CalcButton label={'/'} onClick={operatorClickHandler} /> {/* Add division */}
+         <CalcButton label={'*'} onClick={operatorClickHandler} /> {/* Add multiplication */}
         </div>
         <div className="Name">
           <CalcButton label={'MULDONG'} onClick={nameClickHandler} buttonClassName="CalcButtonName" />
