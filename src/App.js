@@ -91,6 +91,9 @@ export default function App() {
           <CalcButton label={5} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"}/>
           <CalcButton label={6} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"}/>
           <CalcButton label={"="} onClick={equalClickHandler}/>
+          <CalcButton label={7} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"}/>
+          <CalcButton label={8} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"}/>
+          <CalcButton label={9} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"}/>
         </div>
         <div className="Name">
           <CalcButton label={"MULDONG"} onClick={nameClickHandler} buttonClassName={"CalcButtonName"}/>
