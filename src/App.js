@@ -73,7 +73,7 @@ export default function App() {
   const nameClickHandler = (e) => {
     e.preventDefault();
     // Action to display your name
-    alert("Display your name in the calculator display");
+    alert("Darren Castro Muldong");
   }
 
   return (
