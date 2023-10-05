@@ -112,12 +112,12 @@ export default function App() {
           <CalcButton label={9} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
           <CalcButton label={0} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
           <CalcButton label={'.'} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
-          <CalcButton label={'='} onClick={equalClickHandler} />
-         <CalcButton label={'C'} onClick={clearClickHandler} />
+          <CalcButton label={'C'} onClick={clearClickHandler} />
          <CalcButton label={'+'} onClick={operatorClickHandler} />
          <CalcButton label={'-'} onClick={operatorClickHandler} /> {/* Add subtraction */}
          <CalcButton label={'/'} onClick={operatorClickHandler} /> {/* Add division */}
          <CalcButton label={'*'} onClick={operatorClickHandler} /> {/* Add multiplication */}
+        <CalcButton label={'='} onClick={equalClickHandler} />
         </div>
         <div className="Name">
           <CalcButton label={'MULDONG'} onClick={nameClickHandler} buttonClassName="CalcButtonName" />
