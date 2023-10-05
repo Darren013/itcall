@@ -57,9 +57,9 @@ export default function App() {
       setDisp(parseInt(num1) + parseInt(num2));
     } else if (oper === "-") {
       setDisp(parseInt(num1) - parseInt(num2));
-    } else if (oper === "*") {
+    } else if (oper === "*") { // Handle multiplication
       setDisp(parseInt(num1) * parseInt(num2));
-    } else if (oper === "/") {
+    } else if (oper === "/") { // Handle division
       if (parseInt(num2) === 0) {
         setDisp('ERROR: Division by zero');
       } else {
@@ -83,7 +83,7 @@ export default function App() {
 
   const nameClickHandler = (e) => {
     e.preventDefault();
-   
+    // Action to display your name
     alert("Darren Castro Muldong");
   }
 
