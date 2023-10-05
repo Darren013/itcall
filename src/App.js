@@ -19,7 +19,7 @@ function CalcDisplay({ display }) {
 }
 
 export default function App() {
-  const [disp, setDisp] = useState(0);
+  const [disp, setDisp] = useState('0');
   const [num1, setNum1] = useState(null);
   const [oper, setOper] = useState(null);
   const [num2, setNum2] = useState(null);
@@ -27,7 +27,8 @@ export default function App() {
   const numberClickHandler = (e) => {
     e.preventDefault();
     const value = e.target.innerHTML;
-    var num = value;
+    let num = value;
+
     if (oper === null) {
       if (num1 !== null) {
         num = num1 + num;
@@ -41,51 +42,58 @@ export default function App() {
       setNum2(num);
       setDisp(num);
     }
-  }
+  };
 
   const operatorClickHandler = (e) => {
     e.preventDefault();
     const value = e.target.innerHTML;
-    setOper(value);
-    setDisp(value);
-  }
+
+    if (value === '-' && num1 === null) {
+      // Handle negative numbers
+      setNum1('-');
+      setDisp('-');
+    } else if (oper === null) {
+      setOper(value);
+      setDisp(value);
+    }
+  };
 
   const equalClickHandler = (e) => {
     e.preventDefault();
 
-    if (oper === "+") {
-      setDisp(parseInt(num1) + parseInt(num2));
-    } else if (oper === "-") {
-      setDisp(parseInt(num1) - parseInt(num2));
-    } else if (oper === "*") { // Handle multiplication
-      setDisp(parseInt(num1) * parseInt(num2));
-    } else if (oper === "/") { // Handle division
+    if (oper === '+') {
+      setDisp((parseInt(num1) + parseInt(num2)).toString());
+    } else if (oper === '-') {
+      setDisp((parseInt(num1) - parseInt(num2)).toString());
+    } else if (oper === '*') {
+      setDisp((parseInt(num1) * parseInt(num2)).toString());
+    } else if (oper === '/') {
       if (parseInt(num2) === 0) {
         setDisp('ERROR: Division by zero');
       } else {
-        setDisp(parseInt(num1) / parseInt(num2));
+        setDisp((parseInt(num1) / parseInt(num2)).toString());
       }
     }
 
     setNum1(null);
     setOper(null);
     setNum2(null);
-  }
+  };
 
   const clearClickHandler = (e) => {
     e.preventDefault();
 
-    setDisp(0);
+    setDisp('0');
     setNum1(null);
     setOper(null);
     setNum2(null);
-  }
+  };
 
   const nameClickHandler = (e) => {
     e.preventDefault();
     // Action to display your name
-    alert("Darren Castro Muldong");
-  }
+    alert('Darren Castro Muldong');
+  };
 
   return (
     <div className="App">
@@ -93,27 +101,28 @@ export default function App() {
         <h1>Darren Castro Muldong</h1>
         <CalcDisplay display={disp} />
         <div className="ButtonContainer">
-          <CalcButton label={1} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"} />
-          <CalcButton label={2} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"} />
-          <CalcButton label={3} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"} />        
-          <CalcButton label={4} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"} />
-          <CalcButton label={5} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"} />
-          <CalcButton label={6} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"} />    
-          <CalcButton label={7} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"} />
-          <CalcButton label={8} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"} />
-          <CalcButton label={9} onClick={numberClickHandler} buttonClassName={"CalcButtonNum"} />
-          <CalcButton label={"C"} onClick={clearClickHandler} />
-          <CalcButton label={"+"} onClick={operatorClickHandler} />
-          <CalcButton label={"-"} onClick={operatorClickHandler} />
-          <CalcButton label={"="} onClick={equalClickHandler} />
-          <CalcButton label={"*"} onClick={operatorClickHandler} /> {/* Add multiplication */}
-          <CalcButton label={"/"} onClick={operatorClickHandler} /> {/* Add division */}
+          <CalcButton label={1} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+          <CalcButton label={2} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+          <CalcButton label={'C'} onClick={clearClickHandler} />
+          <CalcButton label={3} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+          <CalcButton label={4} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+          <CalcButton label={'+'} onClick={operatorClickHandler} />
+          <CalcButton label={5} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+          <CalcButton label={6} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+          <CalcButton label={'='} onClick={equalClickHandler} />
+          <CalcButton label={7} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+          <CalcButton label={8} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+          <CalcButton label={9} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+          <CalcButton label={'*'} onClick={operatorClickHandler} /> {/* Add multiplication */}
+          <CalcButton label={'/'} onClick={operatorClickHandler} /> {/* Add division */}
+          <CalcButton label={'-'} onClick={operatorClickHandler} /> {/* Add subtraction */}
+          <CalcButton label={0} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
+          <CalcButton label={'.'} onClick={numberClickHandler} buttonClassName="CalcButtonNum" />
         </div>
         <div className="Name">
-          <CalcButton label={"MULDONG"} onClick={nameClickHandler} buttonClassName={"CalcButtonName"} />
+          <CalcButton label={'MULDONG'} onClick={nameClickHandler} buttonClassName="CalcButtonName" />
         </div>
       </div>
-
     </div>
   );
 }
